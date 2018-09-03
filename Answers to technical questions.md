@@ -20,12 +20,13 @@
             I'd have build a basic query handler framework, given a fair amount of time.
 
 
-    **What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.**
+**What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.**
         Local functions in C#7:
         This isn't strictly the most useful, but I really enjoy using it, its something used quite frequently in PL/SQL, the transactional query language for Oracle databases, which is the first language I learnt, so when I found an application for it, I used it.
         Here's a few small functions used in a larger email digest method that pulls all changes from within the system and sends a daily digest based on users subscriptions and which objects they are linked to.
         The first method below creates an email, or updates an existing email object with the changes that have happened, if they are subscribed to it, 
         The second function below is just an abstraction of some hard work that needed to be done in the main method, basically just distincting a load of id's of users to make sure only the selected people who had not recieved a digest email in the last 24 hours would recieve one.
+`
                 List<DigestEmail> CreateEmailObjects(
                 Dictionary<string, List<NotificationUsers>> notificationUsers, 
                 List<ChangeCounts> changes, 
@@ -35,14 +36,16 @@
                 //lots of linq to mung the 3 lists together, checking email subscribers, and then providing the change counts into email users where they are subscribed, creating new objects or adding to existing.
                 return emails;
             }
-
-            List<Guid> GetIdsFromNotificationUserDtos(List<List<NotificationUsers>> dtos)
+`
+            
+'`            List<Guid> GetIdsFromNotificationUserDtos(List<List<NotificationUsers>> dtos)
             {
                 //Pulls and Distincts large list of objects
             }
+`
         I've written these from scratch as the actual code is from my current companies codebase and I did not want to include that here.
 
-    **How would you track down a performance issue in production?**
+**How would you track down a performance issue in production?**
         As long as it had already been confirmed to be a performance issue, and nothing local to the user, specific to the day or the server load, or caused by another error within the application, I'd start start by cloning a fresh copy of live to the dev server so that he data is accurate and fresh, I'd then use then use breakpoints to find where the offending method or api call is.
         I'd then use codeAnalysis in VS to find where the most time is lost, if it was a query in SQL server I'd use prints to output the time in between each call.
         If it was a linq to EF query I'd use a stopwatch to find which call took the longest.
@@ -52,6 +55,7 @@
     How would you improve the Just Eat APIs that you just used?
         The amount of data returned in the response could have been modelled and retrieved so nicely with a GraphQL API, you could be requesting just the object and shape you want, letting the server focus on only the data it needs to retrieve.
     Please describe yourself using JSON.
+
 {
   "Name": "Maurice Elliott",
   "EyeColour": "#20c9bb",
