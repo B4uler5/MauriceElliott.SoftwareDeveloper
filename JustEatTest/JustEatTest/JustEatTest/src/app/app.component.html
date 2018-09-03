@@ -1,0 +1,16 @@
+<div style="text-align:center">
+  <h1>
+    Hello and welcome to my terrible JustEat test app!
+  </h1>
+  <input type="search" placeholder="Search (start typing)" [(ngModel)]="searchTerm" (keyup)="searchList()" />
+  <div style="border:inset; text-align:left" *ngFor="let r of restaurantData">
+    <p>Name: {{r.Name}}<br/></p>
+    <p>Rating: {{r.Rating}}<br/></p>
+    <p>Cuisine Types: <br /></p>
+    <div *ngFor="let c of r.CuisineTypes">
+      <span>
+        {{c.Name}}
+      </span>
+    </div>
+    </div>
+</div>
