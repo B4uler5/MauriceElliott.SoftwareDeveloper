@@ -7,9 +7,6 @@
 
 # dependencies
 /node_modules
-
-#Crap
-/.vs
 # IDEs and editors
 /.idea
 .project
